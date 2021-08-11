@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import Sandbox from './Sandbox';
+
+
+// const routes = [
+//   { url: '/', name: 'Strona główna' },
+//   { url: '/blog', name: 'Blog' },
+//   { url: '/pricing', name: 'Cennik' },
+//   { url: '/contact', name: 'Kontakt' },
+// ];
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <Sandbox routes={routes}/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
