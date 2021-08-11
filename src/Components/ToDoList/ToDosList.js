@@ -4,15 +4,9 @@ import { useState, useCallback, useEffect } from "react";
 function ToDosList({ appliedToDo }) {
   const [toDosList, setToDosList] = useState([]);
 
-  const generateNewList = useCallback(() => {
-    let newList = ['jakis todo'];
-    newList.push(appliedToDo);
-    return newList;
-  }, [appliedToDo]);
-
   useEffect(() => {
-    setToDosList(generateNewList());
-  }, [appliedToDo, generateNewList]);
+    setToDosList([...toDosList, appliedToDo ]);
+  }, [appliedToDo, toDosList]);
 
   return (
     <ul>
