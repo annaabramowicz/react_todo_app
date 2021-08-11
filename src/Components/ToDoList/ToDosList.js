@@ -1,16 +1,9 @@
-import ToDo from "./ToDo/ToDo";
-import { useState, useCallback, useEffect } from "react";
+import ToDo from './ToDo/ToDo';
 
-function ToDosList({ appliedToDo }) {
-  const [toDosList, setToDosList] = useState([]);
-
-  useEffect(() => {
-    setToDosList([...toDosList, appliedToDo ]);
-  }, [appliedToDo, toDosList]);
-
+function ToDosList({ todoList }) {
   return (
     <ul>
-      {toDosList.map((toDo) => (
+      {todoList.map((toDo) => (
         <ToDo key={toDo} toDo={toDo} />
       ))}
     </ul>
