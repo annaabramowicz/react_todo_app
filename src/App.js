@@ -1,4 +1,3 @@
-// import trash from './images/trash.png';
 import "./App.css";
 import "./reset.css";
 import React from "react";
