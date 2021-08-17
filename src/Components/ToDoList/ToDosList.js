@@ -1,7 +1,7 @@
 import ToDo from "./ToDo/ToDo";
+import PropTypes from "prop-types";
 
 function ToDosList({ todoList, removeTodo }) {
-
   const removeToDo = (todo) => {
     removeToDo(todo);
   };
@@ -13,4 +13,8 @@ function ToDosList({ todoList, removeTodo }) {
     </ul>
   );
 }
+ToDosList.propTypes = {
+  todoList: PropTypes.array,
+  removeToDo: PropTypes.func,
+};
 export default ToDosList;

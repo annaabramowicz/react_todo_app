@@ -1,5 +1,6 @@
 import imageUrl from "./images/trash.png";
 import styles from "./ToDo.module.scss";
+import PropTypes from "prop-types";
 
 function ToDo({ todo, removeToDo }) {
   const onClick = (todo) => {
@@ -15,4 +16,8 @@ function ToDo({ todo, removeToDo }) {
     </li>
   );
 }
+ToDo.propTypes = {
+  todo: PropTypes.object,
+  removeToDo: PropTypes.func,
+};
 export default ToDo;

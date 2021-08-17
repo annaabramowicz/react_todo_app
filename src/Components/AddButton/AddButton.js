@@ -1,5 +1,6 @@
 import styles from "./AddButton.module.scss";
 import cn from "classnames";
+import PropTypes from "prop-types";
 
 function AddButton({ onButtonClick, isDisabled }) {
   const onClick = () => {
@@ -19,4 +20,8 @@ function AddButton({ onButtonClick, isDisabled }) {
     </button>
   );
 }
+AddButton.propTypes = {
+  onButtonClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
+};
 export default AddButton;
