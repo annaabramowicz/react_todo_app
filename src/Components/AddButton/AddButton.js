@@ -1,10 +1,20 @@
-function AddButton({ onButtonClick }) {
+import styles from "./AddButton.module.scss";
+import cn from "classnames";
+
+function AddButton({ onButtonClick, isDisabled }) {
   const onClick = () => {
     onButtonClick();
   };
 
   return (
-    <button id="add" onClick={onClick}>
+    <button
+      onClick={onClick}
+      disabled={isDisabled}
+      className={cn([
+        styles.addButton,
+        { [styles.disabledButton]: isDisabled },
+      ])}
+    >
       +
     </button>
   );

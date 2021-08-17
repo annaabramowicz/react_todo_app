@@ -9,6 +9,7 @@ const ToDoInput = ({ setValue, currentInputValue }) => {
       type="text"
       onChange={onInputChange}
       value={currentInputValue}
+      placeholder="Insert your ToDo"
     />
   );
 };
