@@ -1,10 +1,14 @@
 import ToDo from "./ToDo/ToDo";
 
-function ToDosList({ todoList }) {
+function ToDosList({ todoList, removeTodo }) {
+
+  const removeToDo = (todo) => {
+    removeToDo(todo);
+  };
   return (
     <ul>
-      {todoList.map((toDo) => (
-        <ToDo key={toDo} toDo={toDo} />
+      {todoList.map((todo) => (
+        <ToDo key={todo.id} todo={todo} removeTodo={removeTodo} />
       ))}
     </ul>
   );
