@@ -12,14 +12,14 @@ import { useState } from "react";
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
-  const getNewId = () => new Date().getTime();
+  const getNewId = () => `${new Date().getTime()}`;
 
   const isButtonDisabled = !currentInputValue.trim();
 
-  const removeTodo = (todoId) => {
-    setTodoList((currentTodoList) => [
-      currentTodoList.filter((todo) => todo.id !== todoId),
-    ]);
+  const removeOneTodo = (todoId) => {
+    setTodoList((currentTodoList) =>
+      currentTodoList.filter((todo) => todo.id !== todoId)
+    );
   };
 
   const onAddButtonClick = () => {
@@ -49,11 +49,11 @@ function App() {
             onButtonClick={onAddButtonClick}
             isDisabled={isButtonDisabled}
           />
-          <CurrentNumberOfTodos listOfTodos={todoList}/>
+          <CurrentNumberOfTodos listOfTodos={todoList} />
         </div>
       </section>
       <section>
-        <ToDosList todoList={todoList} removeTodo={removeTodo} />
+        <ToDosList todoList={todoList} removeTodo={removeOneTodo} />
       </section>
       <section>
         <ClearAllButton removeAll={removeAllTodo} />

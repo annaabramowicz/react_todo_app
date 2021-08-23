@@ -20,8 +20,10 @@ function AddButton({ onButtonClick, isDisabled }) {
     </button>
   );
 }
+
 AddButton.propTypes = {
   onButtonClick: PropTypes.func,
   isDisabled: PropTypes.bool,
 };
+
 export default AddButton;

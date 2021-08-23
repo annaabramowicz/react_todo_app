@@ -6,7 +6,9 @@ const ClearAllButton = ({ removeAll }) => {
   };
   return <button onClick={onButtonClicked}>CLEAR ALL</button>;
 };
+
 ClearAllButton.propTypes = {
   removeAll: PropTypes.func,
 };
+
 export default ClearAllButton;
