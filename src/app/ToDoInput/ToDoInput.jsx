@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Input } from "@chakra-ui/input";
 
 const ToDoInput = ({ setValue, currentInputValue }) => {
   const onInputChange = (e) => {
@@ -6,7 +7,7 @@ const ToDoInput = ({ setValue, currentInputValue }) => {
   };
 
   return (
-    <input
+    <Input
       id="new-todo-input"
       type="text"
       onChange={onInputChange}

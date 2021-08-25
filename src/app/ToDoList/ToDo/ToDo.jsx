@@ -1,6 +1,7 @@
 import imageUrl from "./images/trash.png";
 import styles from "./ToDo.module.scss";
 import PropTypes from "prop-types";
+import { Button } from "@chakra-ui/button";
 
 function ToDo({ todo, removeOneTodo }) {
   const onClick = () => {
@@ -10,9 +11,9 @@ function ToDo({ todo, removeOneTodo }) {
   return (
     <li>
       {todo.text}
-      <button onClick={onClick}>
+      <Button onClick={onClick}>
         <img className={styles.trashButton} alt="delete todo" src={imageUrl} />
-      </button>
+      </Button>
     </li>
   );
 }

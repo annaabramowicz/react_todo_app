@@ -1,14 +1,14 @@
-import "./App.css";
+// import "./App.css";
 import "./reset.css";
 import React from "react";
-import ToDoInput from "./Components/ToDoInput/ToDoInput";
-import AddButton from "./Components/AddButton/AddButton";
-import ToDosList from "./Components/ToDoList/ToDosList";
-import ClearAllButton from "./Components/ClearAllButton/ClearAllButton";
-import CurrentNumberOfTodos from "./Components/CurrentNumberOfTodos/CurrentNumberOfTodos";
-
+import ToDoInput from "./app/ToDoInput/ToDoInput";
+import AddButton from "./app/AddButton/AddButton";
+import ToDosList from "./app/ToDoList/ToDosList";
+import ClearAllButton from "./app/ClearAllButton/ClearAllButton";
+import CurrentNumberOfTodos from "./app/CurrentNumberOfTodos/CurrentNumberOfTodos";
+import { Heading } from "@chakra-ui/layout";
+import { ChakraProvider } from "@chakra-ui/react";
 import { useState } from "react";
-
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
@@ -38,8 +38,8 @@ function App() {
   };
 
   return (
-    <main>
-      <header>React To Do App</header>
+    <ChakraProvider>
+      <Heading>React To Do App</Heading>
       <section>
         <div>
           <ToDoInput
@@ -59,7 +59,7 @@ function App() {
       <section>
         <ClearAllButton removeAll={removeAllTodo} />
       </section>
-    </main>
+    </ChakraProvider>
   );
 }
 
