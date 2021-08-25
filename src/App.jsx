@@ -9,6 +9,7 @@ import CurrentNumberOfTodos from "./Components/CurrentNumberOfTodos/CurrentNumbe
 
 import { useState } from "react";
 
+
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
