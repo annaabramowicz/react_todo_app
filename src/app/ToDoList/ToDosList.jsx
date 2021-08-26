@@ -1,7 +1,11 @@
-import ToDo from "./ToDo/ToDo";
-import PropTypes from "prop-types";
+import ToDo from './ToDo/ToDo';
+import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getTodos } from 'store/todos/todos';
 
-function ToDosList({ todoList, removeTodo }) {
+function ToDosList({ removeTodo }) {
+  const todoList = useSelector(getTodos);
+
   return (
     <ul>
       {todoList.map((todo) => (

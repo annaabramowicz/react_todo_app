@@ -1,18 +1,20 @@
 // import "./App.css";
-import "./reset.css";
-import React from "react";
-import ToDoInput from "./app/ToDoInput/ToDoInput";
-import AddButton from "./app/AddButton/AddButton";
-import ToDosList from "./app/ToDoList/ToDosList";
-import ClearAllButton from "./app/ClearAllButton/ClearAllButton";
-import CurrentNumberOfTodos from "./app/CurrentNumberOfTodos/CurrentNumberOfTodos";
-import { Heading } from "@chakra-ui/layout";
-import { ChakraProvider } from "@chakra-ui/react";
-import { useState } from "react";
+import '../reset.css';
+import React from 'react';
+import { Heading } from '@chakra-ui/layout';
+import ToDoInput from './ToDoInput/ToDoInput';
+import AddButton from './AddButton/AddButton';
+import ToDosList from './ToDoList/ToDosList';
+import { addTodo } from 'store/todos/todos';
+import ClearAllButton from './ClearAllButton/ClearAllButton';
+import CurrentNumberOfTodos from './CurrentNumberOfTodos/CurrentNumberOfTodos';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 function App() {
-  const [currentInputValue, setCurrentInputValue] = useState("");
+  const [currentInputValue, setCurrentInputValue] = useState('');
   const [todoList, setTodoList] = useState([]);
+  const dispatch = useDispatch();
   const getNewId = () => `${new Date().getTime()}`;
 
   const isButtonDisabled = !currentInputValue.trim();
@@ -24,21 +26,18 @@ function App() {
   };
 
   const onAddButtonClick = () => {
-    setTodoList((currentTodoList) => [
-      ...currentTodoList,
-      {
-        id: getNewId(),
-        text: currentInputValue,
-      },
-    ]);
-    setCurrentInputValue("");
+    const newTodo = {
+      id: getNewId(),
+      text: currentInputValue,
+    };
+    dispatch(addTodo(newTodo));
   };
   const removeAllTodo = () => {
     setTodoList([]);
   };
 
   return (
-    <ChakraProvider>
+    <>
       <Heading>React To Do App</Heading>
       <section>
         <div>
@@ -54,12 +53,12 @@ function App() {
         </div>
       </section>
       <section>
-        <ToDosList todoList={todoList} removeTodo={removeOneTodo} />
+        <ToDosList removeTodo={removeOneTodo} />
       </section>
       <section>
         <ClearAllButton removeAll={removeAllTodo} />
       </section>
-    </ChakraProvider>
+    </>
   );
 }
 
