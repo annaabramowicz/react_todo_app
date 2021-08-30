@@ -1,7 +1,7 @@
-import imageUrl from "./images/trash.png";
-import styles from "./ToDo.module.scss";
 import PropTypes from "prop-types";
-import { Button } from "@chakra-ui/button";
+import DeleteButton from "../../../components/Buttons/IconButton/IconButton";
+import Flex from "../../../components/Flex/Flex";
+import React from "react";
 
 function ToDo({ todo, removeOneTodo }) {
   const onClick = () => {
@@ -10,10 +10,12 @@ function ToDo({ todo, removeOneTodo }) {
 
   return (
     <li>
-      {todo.text}
-      <Button onClick={onClick}>
-        <img className={styles.trashButton} alt="delete todo" src={imageUrl} />
-      </Button>
+      <React.Fragment>
+        <Flex>
+          {todo.text}
+          <DeleteButton onClick={onClick}></DeleteButton>
+        </Flex>
+      </React.Fragment>
     </li>
   );
 }

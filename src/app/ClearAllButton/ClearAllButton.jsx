@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import { Button } from "@chakra-ui/button";
-
+import ClearButton from "../../components/Buttons/ClearButton/ClearButton";
 
 const ClearAllButton = ({ removeAll }) => {
   const onButtonClicked = () => {
     removeAll();
   };
-  return <Button onClick={onButtonClicked}>CLEAR ALL</Button>;
+  return <ClearButton onClick={onButtonClicked}>CLEAR ALL</ClearButton>;
 };
 
 ClearAllButton.propTypes = {

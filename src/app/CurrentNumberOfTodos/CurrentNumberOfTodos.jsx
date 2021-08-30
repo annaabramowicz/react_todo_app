@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
+import Heading from "../../components/Heading/Heading";
 
 const CurrentNumberOfTodos = ({ listOfTodos }) => {
-  return `Current Number Of Todos: ${listOfTodos.length}`;
+  return <Heading size="md">Current number of todos: {listOfTodos.length}</Heading>;
 };
 
 CurrentNumberOfTodos.propTypes = {

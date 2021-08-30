@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Input } from "@chakra-ui/input";
+import Input from "../../components/Input/Input";
 
 const ToDoInput = ({ setValue, currentInputValue }) => {
   const onInputChange = (e) => {

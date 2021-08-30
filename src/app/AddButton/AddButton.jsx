@@ -1,7 +1,5 @@
-import styles from "./AddButton.module.scss";
-import cn from "classnames";
 import PropTypes from "prop-types";
-import { Button } from "@chakra-ui/button";
+import Button from "../../components/Buttons/Button/Button";
 
 function AddButton({ onButtonClick, isDisabled }) {
   const onClick = () => {
@@ -9,14 +7,7 @@ function AddButton({ onButtonClick, isDisabled }) {
   };
 
   return (
-    <Button colorScheme="blue" variant="outline"
-      onClick={onClick}
-      // disabled={isDisabled}
-      // className={cn([
-      //   styles.addButton,
-      //   { [styles.disabledButton]: isDisabled },
-      // ])}
-    >
+    <Button type="positive" onClick={onClick} disabled={isDisabled}>
       Add
     </Button>
   );
