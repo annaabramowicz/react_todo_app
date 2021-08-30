@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from "../../components/Buttons/Button/Button";
+import Button from "components/Buttons/Button/Button";
 
 function AddButton({ onButtonClick, isDisabled }) {
   const onClick = () => {

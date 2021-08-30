@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import DeleteButton from "../../../components/Buttons/IconButton/IconButton";
-import Flex from "../../../components/Flex/Flex";
+import DeleteButton from "components/Buttons/IconButton/IconButton";
+import Flex from "components/Flex/Flex";
 import React from "react";
 
 function ToDo({ todo, removeOneTodo }) {

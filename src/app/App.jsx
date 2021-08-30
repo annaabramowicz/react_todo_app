@@ -6,14 +6,16 @@ import AddButton from "./AddButton/AddButton";
 import ToDosList from "./ToDoList/ToDosList";
 import ClearAllButton from "./ClearAllButton/ClearAllButton";
 import CurrentNumberOfTodos from "./CurrentNumberOfTodos/CurrentNumberOfTodos";
-import { ChakraProvider } from "@chakra-ui/react";
 import { useState } from "react";
+import { addTodo } from "store/todos/todos";
+import { useDispatch } from "react-redux";
 import Flex from "../components/Flex/Flex";
 import Heading from "../components/Heading/Heading";
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const dispatch = useDispatch();
 
   const getNewId = () => `${new Date().getTime()}`;
 
@@ -26,21 +28,18 @@ function App() {
   };
 
   const onAddButtonClick = () => {
-    setTodoList((currentTodoList) => [
-      ...currentTodoList,
-      {
-        id: getNewId(),
-        text: currentInputValue,
-      },
-    ]);
-    setCurrentInputValue("");
+    const newTodo = {
+      id: getNewId(),
+      text: currentInputValue,
+    };
+    dispatch(addTodo(newTodo));
   };
   const removeAllTodo = () => {
     setTodoList([]);
   };
 
   return (
-    <ChakraProvider>
+    <React.Fragment>
       <Flex
         direction="column"
         background="gray.100"
@@ -62,10 +61,10 @@ function App() {
           </Flex>
         </section>
         <CurrentNumberOfTodos listOfTodos={todoList} />
-        <ToDosList todoList={todoList} removeTodo={removeOneTodo} />
+        <ToDosList removeTodo={removeOneTodo} />
         <ClearAllButton removeAll={removeAllTodo} />
       </Flex>
-    </ChakraProvider>
+    </React.Fragment>
   );
 }
 

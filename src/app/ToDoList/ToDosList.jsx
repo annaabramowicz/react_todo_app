@@ -1,10 +1,13 @@
 import ToDo from "./ToDo/ToDo";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { getTodos } from "store/todos/todos";
 
-function ToDosList({ todoList, removeTodo }) {
+function ToDosList({ removeTodo }) {
+  const todosList = useSelector(getTodos);
   return (
     <ul>
-      {todoList.map((todo) => (
+      {todosList.map((todo) => (
         <ToDo key={todo.id} todo={todo} removeOneTodo={removeTodo} />
       ))}
     </ul>

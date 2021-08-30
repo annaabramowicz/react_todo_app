@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import ClearButton from "../../components/Buttons/ClearButton/ClearButton";
+import ClearButton from "components/Buttons/ClearButton/ClearButton";
 
 const ClearAllButton = ({ removeAll }) => {
   const onButtonClicked = () => {
