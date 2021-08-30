@@ -8,8 +8,6 @@ const ToDoInput = ({ setValue, currentInputValue }) => {
 
   return (
     <Input
-      id="new-todo-input"
-      type="text"
       onChange={onInputChange}
       value={currentInputValue}
       placeholder="Insert your ToDo"

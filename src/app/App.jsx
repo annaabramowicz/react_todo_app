@@ -7,24 +7,32 @@ import ToDosList from "./ToDoList/ToDosList";
 import ClearAllButton from "./ClearAllButton/ClearAllButton";
 import CurrentNumberOfTodos from "./CurrentNumberOfTodos/CurrentNumberOfTodos";
 import { useState } from "react";
-import { addTodo } from "store/todos/todos";
-import { useDispatch } from "react-redux";
+import {
+  addTodo,
+  removeAllTodos,
+  getTodos,
+  removeTodo,
+} from "store/todos/todos";
+import { useDispatch, useSelector } from "react-redux";
 import Flex from "../components/Flex/Flex";
 import Heading from "../components/Heading/Heading";
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
-  const [todoList, setTodoList] = useState([]);
+  // const [todoLista, setTodoList] = useState([]);
   const dispatch = useDispatch();
+  const todosList = useSelector(getTodos);
 
   const getNewId = () => `${new Date().getTime()}`;
 
   const isButtonDisabled = !currentInputValue.trim();
 
   const removeOneTodo = (todoId) => {
-    setTodoList((currentTodoList) =>
-      currentTodoList.filter((todo) => todo.id !== todoId)
-    );
+    dispatch(removeTodo(todosList.filter((todo) => todo.id !== todoId)));
+
+    // setTodoList((currentTodoList) =>
+    //   currentTodoList.filter((todo) => todo.id !== todoId)
+    // );
   };
 
   const onAddButtonClick = () => {
@@ -35,7 +43,8 @@ function App() {
     dispatch(addTodo(newTodo));
   };
   const removeAllTodo = () => {
-    setTodoList([]);
+    dispatch(removeAllTodos());
+    // setTodoList([]);
   };
 
   return (
@@ -60,7 +69,7 @@ function App() {
             />
           </Flex>
         </section>
-        <CurrentNumberOfTodos listOfTodos={todoList} />
+        <CurrentNumberOfTodos />
         <ToDosList removeTodo={removeOneTodo} />
         <ClearAllButton removeAll={removeAllTodo} />
       </Flex>
