@@ -8,6 +8,7 @@ const ToDoInput = ({ setValue, currentInputValue }) => {
 
   return (
     <Input
+      boxShadow="lg"
       onChange={onInputChange}
       value={currentInputValue}
       placeholder="Insert your ToDo"

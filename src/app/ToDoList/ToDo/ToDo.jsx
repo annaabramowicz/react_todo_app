@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import DeleteButton from "components/Buttons/IconButton/IconButton";
-import Flex from "components/Flex/Flex";
 import React from "react";
+import Flex from "components/Flex/Flex";
+import Heading from "components/Heading/Heading";
 
 function ToDo({ todo, removeOneTodo }) {
   const onClick = () => {
@@ -10,12 +11,12 @@ function ToDo({ todo, removeOneTodo }) {
 
   return (
     <li>
-      <React.Fragment>
-        <Flex>
+      <Flex>
+        <Heading size="sm">
           {todo.text}
           <DeleteButton onClick={onClick}></DeleteButton>
-        </Flex>
-      </React.Fragment>
+        </Heading>
+      </Flex>
     </li>
   );
 }
