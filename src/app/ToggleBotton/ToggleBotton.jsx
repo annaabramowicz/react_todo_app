@@ -1,11 +1,11 @@
-import { Button as ToggleButton } from "@chakra-ui/button";
+import Button from "components/Buttons/Button/Button";
 import { useColorMode } from "@chakra-ui/react";
 
-const Button = (props) => {
+const ToggleButton = (props) => {
   const { toggleColorMode } = useColorMode();
 
   return (
-    <ToggleButton
+    <Button
       position="fixed"
       top="5px"
       right="5px"
@@ -16,4 +16,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default ToggleButton;

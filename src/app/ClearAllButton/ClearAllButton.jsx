@@ -1,11 +1,21 @@
 import PropTypes from "prop-types";
-import ClearButton from "components/Buttons/ClearButton/ClearButton";
+import Button from "components/Buttons/Button/Button";
 
 const ClearAllButton = ({ removeAll }) => {
   const onButtonClicked = () => {
     removeAll();
   };
-  return <ClearButton onClick={onButtonClicked}>CLEAR ALL</ClearButton>;
+  return (
+    <Button
+      ml={15}
+      colorScheme="teal"
+      variant="solid"
+      mt={5}
+      onClick={onButtonClicked}
+    >
+      CLEAR ALL
+    </Button>
+  );
 };
 
 ClearAllButton.propTypes = {

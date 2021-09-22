@@ -5,23 +5,24 @@ import AddButton from "./AddButton/AddButton";
 import ToDosList from "./ToDoList/ToDosList";
 import ClearAllButton from "./ClearAllButton/ClearAllButton";
 import CurrentNumberOfTodos from "./CurrentNumberOfTodos/CurrentNumberOfTodos";
-import { useState } from "react";
-import { addTodo, removeAllTodos, removeTodo } from "store/todos/todos";
-import { useDispatch } from "react-redux";
+import ToggleButton from "./ToggleBotton/ToggleBotton";
 import Flex from "../components/Flex/Flex";
 import Heading from "../components/Heading/Heading";
 import Box from "../components/Box/Box";
-import ToggleButton from "../components/Buttons/ToggleBotton/ToggleBotton";
+import { useState } from "react";
+import { addTodo, removeAllTodos, removeTodo } from "store/todos/todos";
+import { useDispatch } from "react-redux";
+import { useColorModeValue } from "@chakra-ui/react";
+
+const getNewId = () => `${new Date().getTime()}`;
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const dispatch = useDispatch();
-  const getNewId = () => `${new Date().getTime()}`;
   const isButtonDisabled = !currentInputValue.trim();
+  const formBackground = useColorModeValue("gray.200", "gray.600");
 
-  const removeOneTodo = (todoId) => {
-    dispatch(removeTodo(todoId));
-  };
+  const removeOneTodo = (todoId) => dispatch(removeTodo(todoId));
 
   const onAddButtonClick = () => {
     const newTodo = {
@@ -31,18 +32,17 @@ function App() {
     dispatch(addTodo(newTodo));
     setCurrentInputValue("");
   };
-  const removeAllTodo = () => {
-    dispatch(removeAllTodos());
-  };
+
+  const removeAllTodo = () => dispatch(removeAllTodos());
 
   return (
-    <React.Fragment>
-      <Box>
+    <>
+      <Box margin="50px auto" w="500px">
         <Flex
           boxShadow="lg"
           borderRadius={10}
           direction="column"
-          background="gray.300"
+          background={formBackground}
           height="auto"
         >
           <Heading>React To Do App</Heading>
@@ -64,7 +64,7 @@ function App() {
         <ToDosList removeTodo={removeOneTodo} />
         <ToggleButton>Toggle Mode</ToggleButton>
       </Box>
-    </React.Fragment>
+    </>
   );
 }
 
