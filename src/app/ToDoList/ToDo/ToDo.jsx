@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import DeleteButton from "components/Buttons/IconButton/IconButton";
+import DeleteButton from "components/Buttons/DeleteIconButton/DeleteIconButton";
 import React from "react";
 import Flex from "components/Flex/Flex";
 import Heading from "components/Heading/Heading";
@@ -14,7 +14,7 @@ function ToDo({ todo, removeOneTodo }) {
       <Flex>
         <Heading size="sm">
           {todo.text}
-          <DeleteButton onClick={onClick}></DeleteButton>
+          <DeleteButton onClick={onClick}/>
         </Heading>
       </Flex>
     </li>

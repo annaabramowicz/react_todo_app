@@ -23,6 +23,7 @@ function App() {
   const formBackground = useColorModeValue("gray.200", "gray.600");
 
   const removeOneTodo = (todoId) => dispatch(removeTodo(todoId));
+  const removeAllTodo = () => dispatch(removeAllTodos());
 
   const onAddButtonClick = () => {
     const newTodo = {
@@ -33,7 +34,6 @@ function App() {
     setCurrentInputValue("");
   };
 
-  const removeAllTodo = () => dispatch(removeAllTodos());
 
   return (
     <>
