@@ -5,21 +5,13 @@ import ToDoInput from "./Components/ToDoInput/ToDoInput";
 import AddButton from "./Components/AddButton/AddButton";
 import ToDoList from "./Components/ToDoList/ToDoList";
 import { useState } from "react";
-import DislikeLikeButton from "./Components/Test/AddButton/DislikeLikeButton/DislikeLikeButton";
 import ClearAllButton from "./Components/ClearAllButton/ClearAllButton";
+import CurrentNumberOfToDo from "./Components/CurrentNumberOfToDo/CurrentNumberOfToDo";
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [toDoList, setToDoList] = useState([]);
-  const [likes, setLikes] = useState(0);
-  const [disLikes, setDisLikes] = useState(0);
 
-  const like = () => {
-    setLikes(likes + 1);
-  };
-  const disLike = () => {
-    setDisLikes(disLikes - 1);
-  };
   const getNewId = () => `${new Date().getTime()}`;
 
   const onAddButtonClick = () => {
@@ -32,7 +24,7 @@ function App() {
     ]);
     setCurrentInputValue("");
   };
-  
+
   const removeToDo = (toDoId) => {
     setToDoList((currentToDoList) =>
       currentToDoList.filter((todo) => todo.id !== toDoId)
@@ -41,7 +33,7 @@ function App() {
 
   const removeAllToDo = () => {
     setToDoList([]);
-  }
+  };
 
   return (
     <main>
@@ -53,14 +45,7 @@ function App() {
             currentInputValue={currentInputValue}
           />
           <AddButton onButtonClick={onAddButtonClick} />
-          <br />
-          <br />
-          <DislikeLikeButton name="Like" callback={like} count={likes} />
-          <DislikeLikeButton
-            name="DisLike"
-            callback={disLike}
-            count={disLikes}
-          />
+          <CurrentNumberOfToDo toDoList={toDoList} />
         </div>
       </section>
       <section>
