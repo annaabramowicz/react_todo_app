@@ -1,11 +1,11 @@
 import "./reset.css";
 import "./App.css";
 import React from "react";
-import ToDoInput from "./Components/ToDoInput/ToDoInput";
-import AddButton from "./Components/AddButton/AddButton";
-import ToDoList from "./Components/ToDoList/ToDoList";
-import ClearAllButton from "./Components/ClearAllButton/ClearAllButton";
-import CurrentNumberOfToDo from "./Components/CurrentNumberOfToDo/CurrentNumberOfToDo";
+import ToDoInput from "App/ToDoInput/ToDoInput";
+import AddButton from "App/AddButton/AddButton";
+import ToDoList from "App/ToDoList/ToDoList";
+import ClearAllButton from "App/ClearAllButton/ClearAllButton";
+import CurrentNumberOfToDo from "App/CurrentNumberOfToDo/CurrentNumberOfToDo";
 import { useState } from "react";
 
 const getNewId = () => `${new Date().getTime()}`;

@@ -1,27 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-// import Sandbox from './Sandbox';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ChakraProvider } from "@chakra-ui/react";
 
-
-// const routes = [
-//   { url: '/', name: 'Strona główna' },
-//   { url: '/blog', name: 'Blog' },
-//   { url: '/pricing', name: 'Cennik' },
-//   { url: '/contact', name: 'Kontakt' },
-// ];
-
-ReactDOM.render(
+(ReactDOM.createRoot(document.getElementById("root"))).render(
   <React.StrictMode>
-    <App />
-    {/* <Sandbox routes={routes}/> */}
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>,
-  document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

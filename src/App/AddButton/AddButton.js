@@ -1,5 +1,6 @@
 import cn from "classnames";
 import styles from "./AddButton.module.scss";
+import Button from "App/Components/Button/Button";
 
 function AddButton({ onButtonClick, isDisabled }) {
   const onClick = () => {
@@ -7,7 +8,7 @@ function AddButton({ onButtonClick, isDisabled }) {
   };
 
   return (
-    <button
+    <Button
       onClick={onClick}
       disabled={isDisabled}
       className={cn([
@@ -16,7 +17,7 @@ function AddButton({ onButtonClick, isDisabled }) {
       ])}
     >
       +
-    </button>
+    </Button>
   );
 }
 export default AddButton;
