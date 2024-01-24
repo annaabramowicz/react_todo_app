@@ -1,18 +1,19 @@
-import "./App.css";
 import "./reset.css";
+import "./App.css";
 import React from "react";
 import ToDoInput from "./Components/ToDoInput/ToDoInput";
 import AddButton from "./Components/AddButton/AddButton";
 import ToDoList from "./Components/ToDoList/ToDoList";
-import { useState } from "react";
 import ClearAllButton from "./Components/ClearAllButton/ClearAllButton";
 import CurrentNumberOfToDo from "./Components/CurrentNumberOfToDo/CurrentNumberOfToDo";
+import { useState } from "react";
+
+const getNewId = () => `${new Date().getTime()}`;
 
 function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [toDoList, setToDoList] = useState([]);
-
-  const getNewId = () => `${new Date().getTime()}`;
+  const isButtonDisabled = !currentInputValue.trim();
 
   const onAddButtonClick = () => {
     setToDoList((currentToDoList) => [
@@ -44,7 +45,10 @@ function App() {
             setValue={setCurrentInputValue}
             currentInputValue={currentInputValue}
           />
-          <AddButton onButtonClick={onAddButtonClick} />
+          <AddButton
+            onButtonClick={onAddButtonClick}
+            isDisabled={isButtonDisabled}
+          />
           <CurrentNumberOfToDo toDoList={toDoList} />
         </div>
       </section>
