@@ -1,13 +1,14 @@
+import List from "Components/List/List";
+
 import ToDo from "./ToDo/ToDo";
 
 function ToDoList({ toDoList, removeToDo }) {
-
   return (
-    <ul>
+    <List>
       {toDoList.map((toDo) => (
         <ToDo key={toDo.id} toDo={toDo} removeOneToDo={removeToDo} />
       ))}
-    </ul>
+    </List>
   );
 }
 export default ToDoList;

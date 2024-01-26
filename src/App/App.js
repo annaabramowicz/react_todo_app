@@ -1,5 +1,4 @@
-import "./reset.css";
-import "./App.css";
+import "../reset.css";
 import React from "react";
 import ToDoInput from "App/ToDoInput/ToDoInput";
 import AddButton from "App/AddButton/AddButton";
@@ -7,6 +6,7 @@ import ToDoList from "App/ToDoList/ToDoList";
 import ClearAllButton from "App/ClearAllButton/ClearAllButton";
 import CurrentNumberOfToDo from "App/CurrentNumberOfToDo/CurrentNumberOfToDo";
 import { useState } from "react";
+import Heading from "Components/Heading/Heading";
 
 const getNewId = () => `${new Date().getTime()}`;
 
@@ -14,6 +14,7 @@ function App() {
   const [currentInputValue, setCurrentInputValue] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const isButtonDisabled = !currentInputValue.trim();
+  const isClearButtonDisabled = !toDoList.length;
 
   const onAddButtonClick = () => {
     setToDoList((currentToDoList) => [
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <main>
-      <header>React To Do App</header>
+      <Heading>React To Do App</Heading>
       <section>
         <div>
           <ToDoInput
@@ -47,16 +48,21 @@ function App() {
           />
           <AddButton
             onButtonClick={onAddButtonClick}
-            isDisabled={isButtonDisabled}
+            isDis={isButtonDisabled}
           />
-          <CurrentNumberOfToDo toDoList={toDoList} />
         </div>
+        <Heading size="sx">
+          <CurrentNumberOfToDo toDoList={toDoList} />
+        </Heading>
+        <section>
+          <ClearAllButton
+            removeAll={removeAllToDo}
+            isDisClear={isClearButtonDisabled}
+          />
+        </section>
       </section>
       <section>
         <ToDoList toDoList={toDoList} removeToDo={removeToDo} />
-      </section>
-      <section>
-        <ClearAllButton removeAll={removeAllToDo} />
       </section>
     </main>
   );
