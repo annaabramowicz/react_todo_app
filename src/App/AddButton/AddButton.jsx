@@ -1,4 +1,4 @@
-import Button from "Components/Buttons/Button/Button";
+import Button from "Components/Button/Button";
 
 function AddButton({ onButtonClick, isDis }) {
   const onClick = () => {

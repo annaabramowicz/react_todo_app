@@ -1,7 +1,5 @@
 import { ListIcon as ChakraListIcon } from "@chakra-ui/react";
 
-const ListIcon = (props) => {
-  return <ChakraListIcon {...props} />;
-};
+const ListIcon = (props) => <ChakraListIcon {...props} />;
 
 export default ListIcon;
