@@ -1,4 +1,4 @@
-import Button from "Components/Button/Button";
+import Button from "Components/Buttons/Button/Button";
 
 function ClearAllButton({ removeAll, isDisClear }) {
   const onButtonClicked = () => {
@@ -6,7 +6,9 @@ function ClearAllButton({ removeAll, isDisClear }) {
   };
   
   return (
-    <Button onClick={onButtonClicked} isDisabled={isDisClear}>
+    <Button onClick={onButtonClicked} w={110}
+    //  isDisabled={isDisClear}
+     >
       CLEAR ALL
     </Button>
   );

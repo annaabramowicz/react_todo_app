@@ -1,4 +1,4 @@
-import Button from "Components/Button/Button";
+import Button from "Components/Buttons/Button/Button";
 
 function AddButton({ onButtonClick, isDis }) {
   const onClick = () => {
@@ -6,7 +6,7 @@ function AddButton({ onButtonClick, isDis }) {
   };
 
   return (
-    <Button onClick={onClick} isDisabled={isDis}>
+    <Button onClick={onClick} isDisabled={isDis}  ml={2} >
       Add
     </Button>
   );

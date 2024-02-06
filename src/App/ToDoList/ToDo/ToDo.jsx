@@ -1,20 +1,18 @@
-import ListItem from "Components/List/ListItem/ListItem";
 import ListIcon from "Components/List/ListIcon/ListIcon";
-import CloseButton from "Components/CloseButton/CloseButton";
+import CloseButton from "Components/Buttons/CloseButton/CloseButton";
 import { MdCheckCircle } from "react-icons/md";
+import Flex from "Components/Flex/Flex";
 
 const ToDo = ({ toDo, removeOneToDo }) => {
   const onClick = () => {
     removeOneToDo(toDo.id);
   };
   return (
-    <ListItem spacing={3}>
+    <Flex justifyContent="center" alignItems="center" w={300}>
       <ListIcon as={MdCheckCircle} color="green.500" />
       {toDo.text}
-      <button className="trash" onClick={onClick}>
-        <CloseButton />
-      </button>
-    </ListItem>
+      <CloseButton className="trash" onClick={onClick} />
+    </Flex>
   );
 };
 export default ToDo;
