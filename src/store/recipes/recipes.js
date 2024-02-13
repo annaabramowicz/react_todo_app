@@ -1,7 +1,7 @@
 import { getRecipesFromApi } from "services/foodApi";
 
 //initial state
-const initialState = [];
+const initialState = { recipes: [], isLoading: false };
 
 //ACTION TYPES
 const NAMESPACE = "GET_RECIPES_";
@@ -12,8 +12,10 @@ const GET_RECIPES_FAIL = `${NAMESPACE}GET_RECIPES_FAIL`;
 //REDUCER
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_RECIPES_STARTED:
+      return { ...state, isLoading: true };
     case GET_RECIPES_SUCCESS:
-      return [...state, ...action.payload];
+      return { recipes: [...state.recipes,...action.payload], isLoading: false };
     default:
       return state;
   }
