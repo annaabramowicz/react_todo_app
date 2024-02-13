@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from "redux";
-import todosReducer from "./todos/todos";
+import recipesReducer from "./recipes/recipes";
 import thunkMiddleware from "redux-thunk";
 import { combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -9,7 +9,7 @@ const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 //główny reducer dla wszystkich części
 const reducer = combineReducers({
   // slice, czyli wycinki głownego
-  todos: todosReducer,
+  recipes: recipesReducer,
 });
 
 const store = createStore(reducer, composedEnhancer);

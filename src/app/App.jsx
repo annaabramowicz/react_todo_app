@@ -1,20 +1,43 @@
 import "reset.css";
-import React from "react";
-import Button from "components/Buttons/Button/Button";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipesAsyc } from "store/todos/todos";
-import config from "config/env";
-
-console.log(config);
+import { getRecipesAsyc } from "store/recipes/recipes";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Button from "components/Buttons/Button/Button";
+import Home from "./pages/Home/Home";
+import Ingredients from "./pages/Ingredients/Ingredients";
+import Fridge from "./pages/Fridge/Fridge";
+import Spinner from "components/Spinner/Spinner";
 
 function App() {
   const dispatch = useDispatch();
-
-  const handleClick = () => {
+  useEffect(() => {
     dispatch(getRecipesAsyc());
-  };
+  }, [dispatch]);
 
-  return <Button onClick={handleClick}>Thunk example</Button>;
+  return (
+    <div >
+      <Router>
+        <nav>
+          <Button>
+            <Link to="/">Home</Link>
+          </Button>
+          <Button>
+            <Link to="/ingredients">Ingredients</Link>
+          </Button>
+          <Button>
+            <Link to="/fridge">Fridge</Link>
+          </Button>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ingredients" element={<Ingredients />} />
+          <Route path="/fridge" element={<Fridge />} />
+        </Routes>
+        <Spinner />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
